@@ -65,7 +65,8 @@ SELECT
     IFNULL(dept_no, 'N/A') AS dept_no, IFNULL(dept_name, 'Department name not provided') AS dept_name
 FROM
     departments_duplicate;
-    
+
+
 /*
 GROUP BY and Error 1055:
 Error 1055 occurs when the fields we want to include in a SELECT block with a GROUP BY statement are not included in this GROUP BY and are not aggregated.
