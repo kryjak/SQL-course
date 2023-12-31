@@ -4,7 +4,7 @@ COMMIT:
 - cannot be undone
  
 ROLLBACK:
-- reverts to the last commited state (aborts changes in the working directory)
+- reverts to the last committed state (aborts changes in the working directory)
  */
  
  # Preferences -> SQL Editor -> Disable the option 'Safe Updates'
@@ -16,7 +16,7 @@ ROLLBACK:
  [WHERE conditions];
  */
  
- SELECT * from employees where emp_no = 999903;
+SELECT * from employees where emp_no = 999903;
  
 UPDATE employees 
 SET
@@ -29,17 +29,19 @@ WHERE
     
 SELECT * from employees where emp_no = 999903;
 
-# Let's incorrectly update all the departments, instead of a single one, by ommitting a condition
+# Let's incorrectly update all the departments, instead of a single one, by omitting a condition
+SET AUTOCOMMIT = OFF;
+
 COMMIT;
 UPDATE departments_duplicate 
 SET 
     dept_no = 'd011',
-    dept_name = 'Quality Control';
+    dept_name = 'DUMMY';
 
 SELECT * FROM departments_duplicate;
 ROLLBACK;
 SELECT * FROM departments_duplicate;
-COMMIT; 
+COMMIT;
 
 # Change the “Business Analysis” department name to “Data Analysis”.
 SELECT * from departments ORDER BY dept_no DESC;

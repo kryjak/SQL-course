@@ -107,3 +107,19 @@ WHERE from_date > '2000-01-01'
 GROUP BY emp_no
 HAVING COUNT(emp_no) > 1
 ORDER BY COUNT(emp_no) DESC;
+
+UPDATE departments
+SET dept_name = 'Business Analytics'
+WHERE dept_name = 'Data Analysis';
+
+SELECT *
+FROM departments;
+ROLLBACK;
+
+SELECT dept_no, dept_name, IFNULL(dept_no, dept_name) AS dept_info
+FROM departments_duplicate;
+
+SELECT IFNULL(dept_no, 'N/A')                            AS dept_no,
+       IFNULL(dept_name, 'department name not provided') AS dept_name,
+       IFNULL(dept_no, dept_name)                        AS dept_info
+FROM departments_duplicate;

@@ -2,7 +2,7 @@
 # VALUES (val_1, val_2, ..., val_n);
 -- note that we do not have to specify all the columns, only the ones we need
 -- also, the column names do not need to be in the same order as in the table
--- the column names in the first round brackets can be ommitted
+-- the column names in the first round brackets can be omitted
 -- but then we need to specify all the n columns and in the same order as in the table
 
 INSERT INTO employees (emp_no, birth_date, first_name, last_name, gender, hire_date)
@@ -53,7 +53,7 @@ VALUES (999903, 'd005', '1997-10-01', '9999-01-01');
 # FROM table 1
 # [WHERE condition];
 
--- let's insert information from 'departments' table into its dupicate
+-- let's insert information from 'departments' table into its duplicate
 CREATE TABLE departments_duplicate (
     dept_no CHAR(4) NOT NULL,
     dept_name VARCHAR(40) NOT NULL

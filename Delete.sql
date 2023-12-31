@@ -8,17 +8,18 @@ FROM
 WHERE
     emp_no = 999903;
 
-INSERT INTO employees (emp_no, birth_date, first_name, last_name, hire_date )
+INSERT INTO employees (emp_no, birth_date, first_name, last_name, hire_date)
 VALUES (999903, '1999-01-01', 'John', 'Smith', '2000-01-01');
 
 # DELETE FROM table_name
-# [WHERE condtion];  -- if WHERE is not included, we might delete all records of the table!
+# [WHERE condition];  -- if WHERE is not included, we might delete all records of the table!
 
 DELETE FROM employees 
 WHERE
     emp_no = 999903;
-    
-ROLLBACK;
+
+-- COMMIT;
+-- ROLLBACK;
 
 /*
 DROP VS TRUNCATE VS DELETE

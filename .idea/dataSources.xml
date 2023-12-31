@@ -4,6 +4,7 @@
     <data-source source="LOCAL" name="@localhost" uuid="0c1c780b-828f-4cc1-be44-7f1ff2de38ce">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>

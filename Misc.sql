@@ -45,7 +45,7 @@ ORDER BY
 
 # A nice COALESCE trick:
 SELECT 
-    dept_no, dept_name, COALESCE('fake col') AS dept_manager
+    dept_no, dept_name, COALESCE('fake col') AS dept_info -- actually, the coalesce is not needed, 'fake col' is enough
 FROM
     departments_duplicate
 ORDER BY dept_no;
