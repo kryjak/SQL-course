@@ -67,7 +67,7 @@ FROM
     departments_duplicate;
     
 /*
-GROUP BY and error 1055
+GROUP BY and error 1055:
 Error 1055 occurs when the fields we want to include in a SELECT block with a GROUP BY statement are not included in this GROUP BY and are not aggregated.
 For example, if we have a list of countries, cities within that country and their population,
 then if we group by the country, we can display the total population with SUM(population) - an aggregate function - but including city_name within the SELECT
