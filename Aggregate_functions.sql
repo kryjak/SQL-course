@@ -8,6 +8,8 @@ But SUM(), MIN(), MAX(), AVG() can only be used with numeric data
 # But COUNT(*) will include NULL values
 
 # How many departments are there in the “employees” database? Use the ‘dept_emp’ table to answer the question.
+Use employees;
+
 SELECT 
     COUNT(DISTINCT dept_no)
 FROM
