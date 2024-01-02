@@ -117,9 +117,28 @@ FROM departments;
 ROLLBACK;
 
 SELECT dept_no, dept_name, IFNULL(dept_no, dept_name) AS dept_info
-FROM departments_duplicate;
+FROM departments_dup;
 
 SELECT IFNULL(dept_no, 'N/A')                            AS dept_no,
        IFNULL(dept_name, 'department name not provided') AS dept_name,
        IFNULL(dept_no, dept_name)                        AS dept_info
-FROM departments_duplicate;
+FROM departments_dup;
+
+SELECT m.emp_no, m.dept_no, e.first_name, e.last_name, e.hire_date
+FROM dept_manager_dup m
+         INNER JOIN employees e ON m.emp_no = e.emp_no;
+
+SELECT *
+FROM dept_manager_dup;
+
+SELECT e.emp_no, e.first_name, e.last_name, m.dept_no, m.from_date
+FROM employees e
+         LEFT JOIN dept_manager m ON e.emp_no = m.emp_no
+WHERE e.last_name = 'Markovitch'
+ORDER BY m.dept_no DESC, e.emp_no
+;
+
+SELECT dm.*, d.*
+FROM dept_manager dm
+         CROSS JOIN departments d
+WHERE d.dept_no = 'd009';
