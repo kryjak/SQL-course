@@ -109,3 +109,13 @@ FROM (SELECT country, city, population pop FROM cities) A
 # ORDER BY col DESC; # puts NULL values at the bottom
 # ORDER BY -col ASC; # puts NULL values at the top, non-null numerical values will be sorted in descending order
 # ORDER BY -col DESC; # puts NULL values at the bottom, non-null numerical values will be sorted in ascending order
+
+# SELF-JOIN
+SELECT DISTINCT e1.*
+FROM emp_manager e1
+         JOIN emp_manager e2 ON e1.emp_no = e2.manager_no;
+# I think this can be more intuitively obtained like this:
+SELECT *
+FROM emp_manager e
+WHERE e.emp_no IN (SELECT manager_no FROM emp_manager);
+
