@@ -119,3 +119,23 @@ SELECT *
 FROM emp_manager e
 WHERE e.emp_no IN (SELECT manager_no FROM emp_manager);
 
+# VIEWS
+# A View is a virtual table whose contents are obtained from an existing table(s), called base table(s)
+# the view itself does not contain any real data, the data is physically store in the base table
+# the view simply shows the data contained in the base table
+# views are dynamic, i.e. the reflect the data changes in the underlying base table
+# they do not take physical memory, they are just a copy of the query, not of the data itself
+
+CREATE OR REPLACE VIEW v_dept_emp_latest_date AS
+SELECT emp_no, MAX(from_date) AS from_date, MAX(to_date) AS to_date
+FROM dept_emp
+GROUP BY emp_no;
+
+# Create a view that will extract the average salary of all managers registered in the database. Round this value to the nearest cent.
+CREATE OR REPLACE VIEW v_avg_manager_salary AS
+SELECT ROUND(AVG(salary), 2)
+FROM salaries
+WHERE emp_no IN (SELECT emp_no FROM dept_manager);
+
+SELECT *
+FROM employees.v_avg_manager_salary
